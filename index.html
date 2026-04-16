@@ -204,8 +204,6 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 0;
   }
-  /* Variations for smaller baskets */
-  .detail-grid.three-col { grid-template-columns: 1fr 1fr 1fr; }
   
   .detail-col {
     padding: 22px 18px;
@@ -283,7 +281,6 @@
     background: var(--dark3);
     border-top: 1px solid var(--border);
   }
-  .budget-row.four-col { grid-template-columns: 1fr 1fr 1fr 1fr; }
   
   .bc { padding: 12px 18px; border-right: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 8px; }
   .bc:last-child { border-right: none; }
@@ -355,13 +352,13 @@
   }
 
   @media(max-width: 960px) {
-    .detail-grid, .detail-grid.three-col { grid-template-columns: 1fr 1fr; }
+    .detail-grid { grid-template-columns: 1fr 1fr; }
     .detail-col { border-bottom: 1px solid var(--border); }
     .detail-col:nth-child(even) { border-right: none; }
     .detail-col.lens-pair { grid-column: span 2; flex-direction: row; }
     .lens-half { flex: 1; }
     .lens-half:first-child { border-bottom: none; border-right: 1px solid var(--border); }
-    .budget-row, .budget-row.four-col { grid-template-columns: 1fr 1fr 1fr; }
+    .budget-row { grid-template-columns: 1fr 1fr 1fr; }
     .bc:nth-child(3) { border-right: none; }
     .bc:nth-child(4), .bc:nth-child(5) { border-top: 1px solid var(--border); }
     .bc:nth-child(5) { border-right: none; }
@@ -376,11 +373,11 @@
   }
 
   @media(max-width: 600px) {
-    .detail-grid, .detail-grid.three-col { grid-template-columns: 1fr; }
+    .detail-grid { grid-template-columns: 1fr; }
     .detail-col { border-right: none; border-bottom: 1px solid var(--border); }
     .detail-col.lens-pair { grid-column: span 1; flex-direction: column; }
     .lens-half:first-child { border-right: none; border-bottom: 1px solid var(--border); }
-    .budget-row, .budget-row.four-col { grid-template-columns: 1fr 1fr; }
+    .budget-row { grid-template-columns: 1fr 1fr; }
     .bc:nth-child(2) { border-right: none; }
     .bc:nth-child(3), .bc:nth-child(4), .bc:nth-child(5) { border-top: 1px solid var(--border); }
     .bc:nth-child(4) { border-right: none; }
@@ -392,7 +389,7 @@
   }
 
   @media(max-width: 400px) {
-    .budget-row, .budget-row.four-col { grid-template-columns: 1fr; }
+    .budget-row { grid-template-columns: 1fr; }
     .bc { border-right: none; border-bottom: 1px solid var(--border); }
     .bc:last-child { border-bottom: none; }
   }
@@ -404,12 +401,12 @@
 <header>
   <span class="eyebrow">Studio Setup Planner · India 2025</span>
   <h1>9 Complete Gear <span>Baskets</span></h1>
-  <p class="subtitle">Continuous LED lights (video-first) · Pro mirrorless setups · From under ₹1.5L entry paths to full ₹2.5L dual-lens arsenals.<br>Built for clothing studio shoots, intricate embroidery detail, and smooth Reels.</p>
+  <p class="subtitle">Continuous LED lights (video-first) · Pro mirrorless setups · All baskets now include ultra-fast 256GB V90 storage for heavy 10-bit video.</p>
   <div class="pills">
-    <div class="pill">💰 Budgets: ₹1.4L — ₹2.5L</div>
+    <div class="pill">💰 Budgets: ₹1.69L — ₹2.92L</div>
     <div class="pill">🎬 Video Priority</div>
     <div class="pill">📷 Sigma f/2.8 Power</div>
-    <div class="pill">💡 LED Continuous</div>
+    <div class="pill">💾 SanDisk 256GB V90 Included</div>
   </div>
 </header>
 
@@ -418,16 +415,16 @@
   <div class="basket-header" onclick="toggle('b1')">
     <div class="basket-num">01</div>
     <div class="thumb-strip">
-      <div class="thumb-item"><div class="thumb-svg">💡</div><div><div class="thumb-brand">Godox ×2</div><div class="thumb-name">SL100D LED + 90cm Octa</div></div></div>
+      <div class="thumb-item"><div class="thumb-svg">💡</div><div><div class="thumb-brand">Godox ×2</div><div class="thumb-name">SL100D LED</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">📷</div><div><div class="thumb-brand">Sony</div><div class="thumb-name">a6700 Body</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🔭</div><div><div class="thumb-brand">Sigma</div><div class="thumb-name">18-50mm f/2.8</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🌿</div><div><div class="thumb-brand">Sony</div><div class="thumb-name">18-135mm OSS</div></div></div>
-      <div class="thumb-item"><div class="thumb-svg">🎬</div><div><div class="thumb-brand">DJI</div><div class="thumb-name">RS 3 Mini</div></div></div>
+      <div class="thumb-item"><div class="thumb-svg">💾</div><div><div class="thumb-brand">SanDisk</div><div class="thumb-name">256GB V90</div></div></div>
     </div>
     <div class="header-right">
       <div class="total-box">
         <div class="total-label">Total Est.</div>
-        <div class="total-amount green">~₹2,42,000</div>
+        <div class="total-amount green">~₹2,68,000</div>
       </div>
       <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
     </div>
@@ -438,7 +435,7 @@
         <div class="detail-cat">💡 Studio Lights</div>
         <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">💡</div><div class="lbl">Godox SL100D ×2<br>+ 90cm Octa Softbox</div></div></div>
         <div class="prod-name">2× Godox SL100D LED<span class="badge">Video-First</span></div>
-        <div class="prod-price">~₹28,000 (2 units + 2× 90cm Octa + Stands)</div>
+        <div class="prod-price">~₹28,000</div>
         <ul class="specs">
           <li><strong>100W daylight continuous LED</strong> — works seamlessly for photo AND video</li>
           <li>CRI 96+ — fabric colours rendered accurately</li>
@@ -465,39 +462,48 @@
           <ul class="specs">
             <li><strong>f/2.8 constant</strong> — beautiful bokeh on clothing close-ups</li>
           </ul>
-          <div class="tags"><span class="tag pro">f/2.8 constant</span><span class="tag info">Primary lens</span></div>
         </div>
         <div class="lens-half">
           <div class="detail-cat">🌿 Lens 2 — Travel & Nature</div>
           <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🌿</div><div class="lbl">Sony E 18-135mm f/3.5-5.6<br>OSS | Travel Zoom</div></div></div>
-          <div class="prod-name">Sony E 18-135mm f/3.5-5.6 OSS</div>
-          <div class="prod-price">~₹32,000–₹44,000</div>
+          <div class="prod-name">Sony 18-135mm f/3.5-5.6 OSS</div>
+          <div class="prod-price">~₹32,000</div>
           <ul class="specs">
             <li><strong>202.5mm equiv. reach</strong> — nature, wildlife, travel</li>
           </ul>
-          <div class="tags"><span class="tag pro">Nature reach</span><span class="tag pro">Built-in OSS</span></div>
         </div>
       </div>
-      <div class="detail-col">
-        <div class="detail-cat">🎬 Gimbal</div>
-        <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🎬</div><div class="lbl">DJI RS 3 Mini<br>3-Axis Stabiliser</div></div></div>
-        <div class="prod-name">DJI RS 3 Mini</div>
-        <div class="prod-price">~₹26,000</div>
-        <ul class="specs">
-          <li><strong>2kg payload</strong> — handles a6700 + both lenses</li>
-          <li>Native vertical mode for <strong>Instagram Reels</strong></li>
-        </ul>
-        <div class="tags"><span class="tag pro">Reels vertical</span><span class="tag pro">DJI ecosystem</span></div>
+      <div class="detail-col lens-pair">
+        <div class="lens-half">
+          <div class="detail-cat">🎬 Gimbal</div>
+          <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🎬</div><div class="lbl">DJI RS 3 Mini<br>3-Axis Stabiliser</div></div></div>
+          <div class="prod-name">DJI RS 3 Mini</div>
+          <div class="prod-price">~₹26,000</div>
+          <ul class="specs">
+            <li><strong>2kg payload</strong> — handles a6700 + both lenses</li>
+            <li>Native vertical mode for Reels</li>
+          </ul>
+        </div>
+        <div class="lens-half">
+          <div class="detail-cat">💾 Memory Card</div>
+          <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">💾</div><div class="lbl">SanDisk 256GB<br>Extreme Pro V90</div></div></div>
+          <div class="prod-name">SanDisk 256GB V90</div>
+          <div class="prod-price">~₹26,000</div>
+          <ul class="specs">
+            <li><strong>300MB/s</strong> — Essential for capturing heavy 10-bit video files without dropping frames</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="budget-row">
-      <div class="bc"><span class="bc-lbl">Lights + Modifiers</span><span class="bc-val">~₹28,000</span></div>
-      <div class="bc"><span class="bc-lbl">Camera Body</span><span class="bc-val">~₹1,21,000</span></div>
-      <div class="bc"><span class="bc-lbl">Sigma + Sony Lens</span><span class="bc-val">~₹35K + ₹32K</span></div>
+      <div class="bc"><span class="bc-lbl">Lights</span><span class="bc-val">~₹28,000</span></div>
+      <div class="bc"><span class="bc-lbl">Camera</span><span class="bc-val">~₹1,21,000</span></div>
+      <div class="bc"><span class="bc-lbl">Lenses</span><span class="bc-val">~₹67,000</span></div>
       <div class="bc"><span class="bc-lbl">Gimbal</span><span class="bc-val">~₹26,000</span></div>
+      <div class="bc"><span class="bc-lbl">256GB V90 SD</span><span class="bc-val">~₹26,000</span></div>
     </div>
     <div class="verdict">
-      <strong>⭐ Why this is #1:</strong> The Sigma 18-50mm f/2.8 is your studio workhorse — bokeh, sharpness, and quiet AF. The Sony 18-135mm is your travel companion. LED continuous lights mean you shoot video seamlessly. Well within ₹2.5L with buffer remaining.
+      <strong>⭐ Why this is #1:</strong> The Sigma 18-50mm f/2.8 is your studio workhorse. The Sony 18-135mm is your travel companion. Includes the ultra-fast SanDisk 256GB V90 to handle the massive 4K 120fps video files the a6700 produces.
     </div>
   </div>
 </div>
@@ -509,10 +515,10 @@
       <div class="thumb-item"><div class="thumb-svg">⚡</div><div><div class="thumb-brand">Godox</div><div class="thumb-name">SK400II-V Kit (2×)</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">📷</div><div><div class="thumb-brand">Sony</div><div class="thumb-name">a6700 + 18-135mm Kit</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🔭</div><div><div class="thumb-brand">Sigma</div><div class="thumb-name">18-50mm f/2.8</div></div></div>
-      <div class="thumb-item"><div class="thumb-svg">🎬</div><div><div class="thumb-brand">DJI</div><div class="thumb-name">RS 3 Mini</div></div></div>
+      <div class="thumb-item"><div class="thumb-svg">💾</div><div><div class="thumb-brand">SanDisk</div><div class="thumb-name">256GB V90</div></div></div>
     </div>
     <div class="header-right">
-      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount amber">~₹2,45,000</div></div>
+      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount amber">~₹2,71,000</div></div>
       <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
     </div>
   </div>
@@ -525,42 +531,47 @@
         <div class="prod-price">~₹38,000</div>
         <ul class="specs">
           <li><strong>400Ws strobe</strong> — freezes all motion on fabric</li>
-          <li>Comes with softboxes + stands</li>
         </ul>
-        <div class="tags"><span class="tag pro">Max freeze motion</span><span class="tag con">Photo only (no video)</span></div>
       </div>
       <div class="detail-col">
         <div class="detail-cat">📷 Camera</div>
         <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">📷</div><div class="lbl">Sony a6700<br>+ 18-135mm Kit</div></div></div>
         <div class="prod-name">Sony a6700 + 18-135mm Kit</div>
         <div class="prod-price">~₹1,46,000</div>
-        <ul class="specs">
-          <li>4K 120fps 10-bit, S-Log3, S-Cinetone</li>
-          <li>18-135mm covers wide to near-tele</li>
-        </ul>
-        <div class="tags"><span class="tag pro">Best video APS-C</span></div>
       </div>
       <div class="detail-col lens-pair">
         <div class="lens-half">
           <div class="detail-cat">🌿 Lens 1 (in kit)</div>
           <div class="prod-name">Sony 18-135mm f/3.5-5.6 OSS</div>
-          <div class="tags"><span class="tag info">All-rounder</span></div>
         </div>
         <div class="lens-half">
           <div class="detail-cat">🔭 Lens 2 (add-on)</div>
           <div class="prod-name">Sigma 18-50mm f/2.8</div>
-          <div class="prod-price">~₹35,000 (separate buy)</div>
-          <div class="tags"><span class="tag pro">Studio upgrade</span></div>
+          <div class="prod-price">~₹35,000</div>
         </div>
       </div>
-      <div class="detail-col">
-        <div class="detail-cat">🎬 Gimbal</div>
-        <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🎬</div><div class="lbl">DJI RS 3 Mini</div></div></div>
-        <div class="prod-name">DJI RS 3 Mini</div>
-        <div class="prod-price">~₹26,000</div>
+      <div class="detail-col lens-pair">
+        <div class="lens-half">
+          <div class="detail-cat">🎬 Gimbal</div>
+          <div class="prod-name">DJI RS 3 Mini</div>
+          <div class="prod-price">~₹26,000</div>
+        </div>
+        <div class="lens-half">
+          <div class="detail-cat">💾 Memory Card</div>
+          <div class="prod-name">SanDisk 256GB V90</div>
+          <div class="prod-price">~₹26,000</div>
+          <ul class="specs"><li><strong>300MB/s</strong> speeds to handle heavy bursts and high-res video</li></ul>
+        </div>
       </div>
     </div>
-    <div class="verdict"><strong>Verdict:</strong> Strobe kit gives maximum photo quality for fabric — embroidery frozen perfectly. Within ₹2.5L budget comfortably.</div>
+    <div class="budget-row">
+      <div class="bc"><span class="bc-lbl">Lights</span><span class="bc-val">~₹38,000</span></div>
+      <div class="bc"><span class="bc-lbl">Cam+Lens</span><span class="bc-val">~₹1,46,000</span></div>
+      <div class="bc"><span class="bc-lbl">Sigma Lens</span><span class="bc-val">~₹35,000</span></div>
+      <div class="bc"><span class="bc-lbl">Gimbal</span><span class="bc-val">~₹26,000</span></div>
+      <div class="bc"><span class="bc-lbl">256GB V90 SD</span><span class="bc-val">~₹26,000</span></div>
+    </div>
+    <div class="verdict"><strong>Verdict:</strong> Strobe kit gives maximum photo quality for fabric — embroidery frozen perfectly. V90 card ensures heavy RAW burst photography doesn't choke the camera buffer.</div>
   </div>
 </div>
 
@@ -571,10 +582,10 @@
       <div class="thumb-item"><div class="thumb-svg">💡</div><div><div class="thumb-brand">Godox ×2</div><div class="thumb-name">SL100D LED</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🎞️</div><div><div class="thumb-brand">Fujifilm</div><div class="thumb-name">X-S20 + 16-50mm</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🎥</div><div><div class="thumb-brand">Fujifilm</div><div class="thumb-name">XF 18-120mm PZ</div></div></div>
-      <div class="thumb-item"><div class="thumb-svg">🎬</div><div><div class="thumb-brand">DJI</div><div class="thumb-name">RS 3 Mini</div></div></div>
+      <div class="thumb-item"><div class="thumb-svg">💾</div><div><div class="thumb-brand">SanDisk</div><div class="thumb-name">256GB V90</div></div></div>
     </div>
     <div class="header-right">
-      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount amber">~₹2,66,000</div></div>
+      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount amber">~₹2,92,000</div></div>
       <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
     </div>
   </div>
@@ -589,33 +600,45 @@
       <div class="detail-col">
         <div class="detail-cat">🎞️ Camera</div>
         <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🎞️</div><div class="lbl">Fujifilm X-S20</div></div></div>
-        <div class="prod-name">Fujifilm X-S20 + 16-50mm f/2.8<span class="badge">Best Colors</span></div>
+        <div class="prod-name">Fujifilm X-S20 + 16-50mm<span class="badge">Best Colors</span></div>
         <div class="prod-price">~₹1,57,000 (kit)</div>
         <ul class="specs">
           <li><strong>Film Simulations</strong> — unique signature look</li>
-          <li>Point-click: best SOOC colors in class</li>
         </ul>
-        <div class="tags"><span class="tag pro">Iconic Fuji colors</span></div>
       </div>
       <div class="detail-col lens-pair">
         <div class="lens-half">
           <div class="detail-cat">🔭 Lens 1 (in kit)</div>
-          <div class="prod-name">Fujifilm XC 16-50mm f/2.8-4.8</div>
+          <div class="prod-name">Fujifilm XC 16-50mm</div>
         </div>
         <div class="lens-half">
           <div class="detail-cat">🎥 Lens 2 — Nature</div>
           <div class="prod-name">Fujifilm XF 18-120mm f/4 PZ</div>
-          <div class="prod-price">~₹65,000–₹70,000</div>
-          <ul class="specs"><li>Power zoom — smooth cinematic zoom pulls</li></ul>
+          <div class="prod-price">~₹65,000</div>
         </div>
       </div>
-      <div class="detail-col">
-        <div class="detail-cat">🎬 Gimbal</div>
-        <div class="prod-name">DJI RS 3 Mini</div>
-        <div class="prod-price">~₹26,000</div>
+      <div class="detail-col lens-pair">
+        <div class="lens-half">
+          <div class="detail-cat">🎬 Gimbal</div>
+          <div class="prod-name">DJI RS 3 Mini</div>
+          <div class="prod-price">~₹26,000</div>
+        </div>
+        <div class="lens-half">
+          <div class="detail-cat">💾 Memory Card</div>
+          <div class="prod-name">SanDisk 256GB V90</div>
+          <div class="prod-price">~₹26,000</div>
+          <ul class="specs"><li><strong>300MB/s</strong> — Required for Fuji's All-Intra heavy video formats</li></ul>
+        </div>
       </div>
     </div>
-    <div class="verdict"><strong>Verdict:</strong> If Fujifilm's unique Film Simulation look is your brand identity, this basket delivers it. Slightly over ₹2.5L — consider skipping the XF lens initially.</div>
+    <div class="budget-row">
+      <div class="bc"><span class="bc-lbl">Lights</span><span class="bc-val">~₹28,000</span></div>
+      <div class="bc"><span class="bc-lbl">Cam+Lens</span><span class="bc-val">~₹1,57,000</span></div>
+      <div class="bc"><span class="bc-lbl">XF Zoom</span><span class="bc-val">~₹65,000</span></div>
+      <div class="bc"><span class="bc-lbl">Gimbal</span><span class="bc-val">~₹26,000</span></div>
+      <div class="bc"><span class="bc-lbl">256GB V90 SD</span><span class="bc-val">~₹26,000</span></div>
+    </div>
+    <div class="verdict"><strong>Verdict:</strong> Fujifilm's unique Film Simulation look + premium storage to handle high bitrates. Over ₹2.5L — consider skipping the XF lens initially to fit a strict budget.</div>
   </div>
 </div>
 
@@ -626,11 +649,10 @@
       <div class="thumb-item"><div class="thumb-svg">🌡️</div><div><div class="thumb-brand">Neewer ×2</div><div class="thumb-name">200W Bi-Color</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">📷</div><div><div class="thumb-brand">Sony</div><div class="thumb-name">a6700 Body</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🔭</div><div><div class="thumb-brand">Sigma</div><div class="thumb-name">18-50mm f/2.8</div></div></div>
-      <div class="thumb-item"><div class="thumb-svg">🌿</div><div><div class="thumb-brand">Sony</div><div class="thumb-name">18-135mm OSS</div></div></div>
-      <div class="thumb-item"><div class="thumb-svg">🤖</div><div><div class="thumb-brand">Hohem</div><div class="thumb-name">iSteady MT2 Kit</div></div></div>
+      <div class="thumb-item"><div class="thumb-svg">💾</div><div><div class="thumb-brand">SanDisk</div><div class="thumb-name">256GB V90</div></div></div>
     </div>
     <div class="header-right">
-      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount green">~₹2,37,000</div></div>
+      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount green">~₹2,63,000</div></div>
       <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
     </div>
   </div>
@@ -641,7 +663,6 @@
         <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🌡️</div><div class="lbl">Neewer 200W Bi-Color</div></div></div>
         <div class="prod-name">2× Neewer 200W Bi-Color</div>
         <div class="prod-price">~₹24,000</div>
-        <ul class="specs"><li><strong>Bi-color 2700K–6500K</strong> — match any location</li></ul>
       </div>
       <div class="detail-col">
         <div class="detail-cat">📷 Camera</div>
@@ -659,15 +680,27 @@
           <div class="prod-name">Sony 18-135mm f/3.5 OSS</div>
         </div>
       </div>
-      <div class="detail-col">
-        <div class="detail-cat">🤖 Gimbal</div>
-        <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🤖</div><div class="lbl">Hohem iSteady MT2</div></div></div>
-        <div class="prod-name">Hohem iSteady MT2 Kit<span class="badge">AI Tracking</span></div>
-        <div class="prod-price">~₹25,000</div>
-        <ul class="specs"><li><strong>AI Vision tracking</strong> — tracks subject automatically</li></ul>
+      <div class="detail-col lens-pair">
+        <div class="lens-half">
+          <div class="detail-cat">🤖 Gimbal</div>
+          <div class="prod-name">Hohem iSteady MT2 Kit<span class="badge">AI Tracking</span></div>
+          <div class="prod-price">~₹25,000</div>
+        </div>
+        <div class="lens-half">
+          <div class="detail-cat">💾 Memory Card</div>
+          <div class="prod-name">SanDisk 256GB V90</div>
+          <div class="prod-price">~₹26,000</div>
+        </div>
       </div>
     </div>
-    <div class="verdict"><strong>Verdict:</strong> The Hohem MT2's AI tracking is a secret weapon for solo vlogging. Bi-Color lets you match warm golden-hour looks.</div>
+    <div class="budget-row">
+      <div class="bc"><span class="bc-lbl">Lights</span><span class="bc-val">~₹24,000</span></div>
+      <div class="bc"><span class="bc-lbl">Camera</span><span class="bc-val">~₹1,21,000</span></div>
+      <div class="bc"><span class="bc-lbl">Lenses</span><span class="bc-val">~₹67,000</span></div>
+      <div class="bc"><span class="bc-lbl">Gimbal</span><span class="bc-val">~₹25,000</span></div>
+      <div class="bc"><span class="bc-lbl">256GB V90 SD</span><span class="bc-val">~₹26,000</span></div>
+    </div>
+    <div class="verdict"><strong>Verdict:</strong> The Hohem MT2's AI tracking is a secret weapon for solo vlogging. Paired with a massive V90 card, you can shoot solo all day securely.</div>
   </div>
 </div>
 
@@ -678,11 +711,10 @@
       <div class="thumb-item"><div class="thumb-svg">💡</div><div><div class="thumb-brand">Godox ×2</div><div class="thumb-name">SL100D LED</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🎥</div><div><div class="thumb-brand">Sony</div><div class="thumb-name">ZV-E10 II Body</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🔭</div><div><div class="thumb-brand">Sigma</div><div class="thumb-name">18-50mm f/2.8</div></div></div>
-      <div class="thumb-item"><div class="thumb-svg">🌿</div><div><div class="thumb-brand">Sony</div><div class="thumb-name">18-135mm OSS</div></div></div>
-      <div class="thumb-item"><div class="thumb-svg">🎯</div><div><div class="thumb-brand">Zhiyun</div><div class="thumb-name">Weebill 3</div></div></div>
+      <div class="thumb-item"><div class="thumb-svg">💾</div><div><div class="thumb-brand">SanDisk</div><div class="thumb-name">256GB V90</div></div></div>
     </div>
     <div class="header-right">
-      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount green">~₹2,00,000</div></div>
+      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount green">~₹2,26,000</div></div>
       <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
     </div>
   </div>
@@ -700,9 +732,7 @@
         <div class="prod-name">Sony ZV-E10 II Body<span class="badge">Budget Smart</span></div>
         <div class="prod-price">~₹75,000</div>
         <ul class="specs">
-          <li>Same 26MP sensor as a6700</li>
-          <li>4K 60fps 10-bit 4:2:2, S-Log3</li>
-          <li>No IBIS — gimbal required</li>
+          <li>Same 26MP sensor as a6700, 4K 10-bit</li>
         </ul>
       </div>
       <div class="detail-col lens-pair">
@@ -715,15 +745,27 @@
           <div class="prod-name">Sony 18-135mm f/3.5 OSS</div>
         </div>
       </div>
-      <div class="detail-col">
-        <div class="detail-cat">🎯 Gimbal</div>
-        <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🎯</div><div class="lbl">Zhiyun Weebill 3</div></div></div>
-        <div class="prod-name">Zhiyun Weebill 3</div>
-        <div class="prod-price">~₹30,000</div>
-        <ul class="specs"><li><strong>3kg payload</strong> — future-proof</li></ul>
+      <div class="detail-col lens-pair">
+        <div class="lens-half">
+          <div class="detail-cat">🎯 Gimbal</div>
+          <div class="prod-name">Zhiyun Weebill 3</div>
+          <div class="prod-price">~₹30,000</div>
+        </div>
+        <div class="lens-half">
+          <div class="detail-cat">💾 Memory Card</div>
+          <div class="prod-name">SanDisk 256GB V90</div>
+          <div class="prod-price">~₹26,000</div>
+        </div>
       </div>
     </div>
-    <div class="verdict"><strong>Verdict:</strong> Saves ~₹42K vs Basket 1 while keeping identical video quality (same sensor!). Trade-off is no IBIS and no EVF — the gimbal compensates for IBIS.</div>
+    <div class="budget-row">
+      <div class="bc"><span class="bc-lbl">Lights</span><span class="bc-val">~₹28,000</span></div>
+      <div class="bc"><span class="bc-lbl">Camera</span><span class="bc-val">~₹75,000</span></div>
+      <div class="bc"><span class="bc-lbl">Lenses</span><span class="bc-val">~₹67,000</span></div>
+      <div class="bc"><span class="bc-lbl">Gimbal</span><span class="bc-val">~₹30,000</span></div>
+      <div class="bc"><span class="bc-lbl">256GB V90 SD</span><span class="bc-val">~₹26,000</span></div>
+    </div>
+    <div class="verdict"><strong>Verdict:</strong> Highly efficient! You get professional 10-bit video, dual lenses, a strong gimbal, and the top-tier 256GB V90 card, all while saving significantly vs the a6700.</div>
   </div>
 </div>
 
@@ -734,61 +776,58 @@
       <div class="thumb-item"><div class="thumb-svg">💡</div><div><div class="thumb-brand">Godox ×2</div><div class="thumb-name">SL100D LED</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">📷</div><div><div class="thumb-brand">Sony</div><div class="thumb-name">a6700 Body</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🔭</div><div><div class="thumb-brand">Sigma</div><div class="thumb-name">18-50mm f/2.8</div></div></div>
-      <div class="thumb-item"><div class="thumb-svg">🎬</div><div><div class="thumb-brand">DJI</div><div class="thumb-name">RS 3 Mini</div></div></div>
+      <div class="thumb-item"><div class="thumb-svg">💾</div><div><div class="thumb-brand">SanDisk</div><div class="thumb-name">256GB V90</div></div></div>
     </div>
     <div class="header-right">
-      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount green">~₹2,10,000</div></div>
+      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount green">~₹2,36,000</div></div>
       <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
     </div>
   </div>
   <div class="basket-detail">
-    <div class="detail-grid three-col">
+    <div class="detail-grid">
       <div class="detail-col">
         <div class="detail-cat">💡 Studio Lights</div>
         <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">💡</div><div class="lbl">Godox SL100D ×2</div></div></div>
         <div class="prod-name">2× Godox SL100D LED + Octas</div>
         <div class="prod-price">~₹28,000</div>
-        <ul class="specs">
-          <li>100W daylight continuous LED</li>
-          <li>Wide, wrap-around soft light for fabric textures</li>
-        </ul>
       </div>
       <div class="detail-col">
         <div class="detail-cat">📷 Camera</div>
         <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">📷</div><div class="lbl">Sony Alpha a6700</div></div></div>
         <div class="prod-name">Sony a6700 Body Only<span class="badge">Pro Hybrid</span></div>
         <div class="prod-price">~₹1,21,000</div>
+      </div>
+      <div class="detail-col">
+        <div class="detail-cat">🔭 The Single Lens</div>
+        <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🔭</div><div class="lbl">Sigma 18-50mm f/2.8</div></div></div>
+        <div class="prod-name">Sigma 18-50mm f/2.8 DC DN</div>
+        <div class="prod-price">~₹35,000</div>
         <ul class="specs">
-          <li>4K 120fps 10-bit 4:2:2, 5-axis IBIS</li>
-          <li>AI Subject Recognition — locks onto models easily</li>
+          <li><strong>f/2.8 constant</strong> — stunning bokeh for intricate embroidery work</li>
         </ul>
       </div>
       <div class="detail-col lens-pair">
         <div class="lens-half">
-          <div class="detail-cat">🔭 The Single Lens</div>
-          <div class="prod-name">Sigma 18-50mm f/2.8 DC DN</div>
-          <div class="prod-price">~₹35,000</div>
-          <ul class="specs">
-            <li><strong>f/2.8 constant</strong> — stunning bokeh for close-ups on intricate Zardozi work</li>
-          </ul>
-        </div>
-        <div class="lens-half">
           <div class="detail-cat">🎬 Gimbal</div>
           <div class="prod-name">DJI RS 3 Mini</div>
           <div class="prod-price">~₹26,000</div>
-          <ul class="specs">
-            <li>Native vertical mode for Reels</li>
-          </ul>
+        </div>
+        <div class="lens-half">
+          <div class="detail-cat">💾 Memory Card</div>
+          <div class="prod-name">SanDisk 256GB V90</div>
+          <div class="prod-price">~₹26,000</div>
+          <ul class="specs"><li><strong>300MB/s</strong> required for the a6700's demanding video codecs</li></ul>
         </div>
       </div>
     </div>
-    <div class="budget-row four-col">
+    <div class="budget-row">
       <div class="bc"><span class="bc-lbl">Lights</span><span class="bc-val">~₹28,000</span></div>
       <div class="bc"><span class="bc-lbl">Camera</span><span class="bc-val">~₹1,21,000</span></div>
-      <div class="bc"><span class="bc-lbl">Sigma 18-50mm</span><span class="bc-val">~₹35,000</span></div>
+      <div class="bc"><span class="bc-lbl">Sigma Lens</span><span class="bc-val">~₹35,000</span></div>
       <div class="bc"><span class="bc-lbl">Gimbal</span><span class="bc-val">~₹26,000</span></div>
+      <div class="bc"><span class="bc-lbl">256GB V90 SD</span><span class="bc-val">~₹26,000</span></div>
     </div>
-    <div class="verdict"><strong>⭐ The Studio Purist:</strong> Drops the travel zoom to focus entirely on indoor professional shoots. By stripping away what you don't need, you get the highest-end APS-C body paired with the sharpest studio lens to perfectly capture fine hand-embroidered details.</div>
+    <div class="verdict"><strong>⭐ The Studio Purist:</strong> Drops the travel zoom to focus entirely on indoor professional shoots. Combines the highest-end APS-C body, the sharpest studio lens, and ultra-fast V90 storage.</div>
   </div>
 </div>
 
@@ -798,16 +837,16 @@
     <div class="thumb-strip">
       <div class="thumb-item"><div class="thumb-svg">💡</div><div><div class="thumb-brand">Godox ×2</div><div class="thumb-name">SL100D LED</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🎞️</div><div><div class="thumb-brand">Fujifilm</div><div class="thumb-name">X-S20 Body</div></div></div>
-      <div class="thumb-item"><div class="thumb-svg">🔭</div><div><div class="thumb-brand">Sigma</div><div class="thumb-name">18-50mm f/2.8 X-Mount</div></div></div>
-      <div class="thumb-item"><div class="thumb-svg">🎬</div><div><div class="thumb-brand">DJI</div><div class="thumb-name">RS 3 Mini</div></div></div>
+      <div class="thumb-item"><div class="thumb-svg">🔭</div><div><div class="thumb-brand">Sigma</div><div class="thumb-name">18-50mm f/2.8</div></div></div>
+      <div class="thumb-item"><div class="thumb-svg">💾</div><div><div class="thumb-brand">SanDisk</div><div class="thumb-name">256GB V90</div></div></div>
     </div>
     <div class="header-right">
-      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount green">~₹2,09,000</div></div>
+      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount green">~₹2,35,000</div></div>
       <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
     </div>
   </div>
   <div class="basket-detail">
-    <div class="detail-grid three-col">
+    <div class="detail-grid">
       <div class="detail-col">
         <div class="detail-cat">💡 Studio Lights</div>
         <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">💡</div><div class="lbl">Godox SL100D ×2</div></div></div>
@@ -819,34 +858,34 @@
         <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🎞️</div><div class="lbl">Fujifilm X-S20</div></div></div>
         <div class="prod-name">Fujifilm X-S20 Body Only<span class="badge">Color Science</span></div>
         <div class="prod-price">~₹1,15,000</div>
-        <ul class="specs">
-          <li><strong>Film Simulations</strong> — Velvia pops fabric colors straight out of camera</li>
-          <li>6.2K internal recording, IBIS built-in</li>
-        </ul>
+      </div>
+      <div class="detail-col">
+        <div class="detail-cat">🔭 The Single Lens</div>
+        <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🔭</div><div class="lbl">Sigma 18-50mm f/2.8</div></div></div>
+        <div class="prod-name">Sigma 18-50mm f/2.8 (X-Mount)</div>
+        <div class="prod-price">~₹40,000</div>
       </div>
       <div class="detail-col lens-pair">
-        <div class="lens-half">
-          <div class="detail-cat">🔭 The Single Lens</div>
-          <div class="prod-name">Sigma 18-50mm f/2.8 for X-Mount</div>
-          <div class="prod-price">~₹40,000</div>
-          <ul class="specs">
-            <li>Sigma's legendary sharpness paired with Fuji's sensor</li>
-          </ul>
-        </div>
         <div class="lens-half">
           <div class="detail-cat">🎬 Gimbal</div>
           <div class="prod-name">DJI RS 3 Mini</div>
           <div class="prod-price">~₹26,000</div>
         </div>
+        <div class="lens-half">
+          <div class="detail-cat">💾 Memory Card</div>
+          <div class="prod-name">SanDisk 256GB V90</div>
+          <div class="prod-price">~₹26,000</div>
+        </div>
       </div>
     </div>
-    <div class="budget-row four-col">
+    <div class="budget-row">
       <div class="bc"><span class="bc-lbl">Lights</span><span class="bc-val">~₹28,000</span></div>
       <div class="bc"><span class="bc-lbl">Camera</span><span class="bc-val">~₹1,15,000</span></div>
-      <div class="bc"><span class="bc-lbl">Sigma 18-50mm</span><span class="bc-val">~₹40,000</span></div>
+      <div class="bc"><span class="bc-lbl">Sigma Lens</span><span class="bc-val">~₹40,000</span></div>
       <div class="bc"><span class="bc-lbl">Gimbal</span><span class="bc-val">~₹26,000</span></div>
+      <div class="bc"><span class="bc-lbl">256GB V90 SD</span><span class="bc-val">~₹26,000</span></div>
     </div>
-    <div class="verdict"><strong>Verdict:</strong> Combining Fuji's straight-out-of-camera color science with the Sigma 18-50mm f/2.8 lens. This setup perfectly renders the deep reds, golds, and emeralds of Pakistani designer styles without needing hours of color grading.</div>
+    <div class="verdict"><strong>Verdict:</strong> Combining Fuji's gorgeous color science with Sigma's sharpness, backed by 300MB/s storage. Renders deep reds and golds beautifully without color grading.</div>
   </div>
 </div>
 
@@ -857,15 +896,15 @@
       <div class="thumb-item"><div class="thumb-svg">💡</div><div><div class="thumb-brand">Godox ×2</div><div class="thumb-name">SL60IID LED</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🎥</div><div><div class="thumb-brand">Sony</div><div class="thumb-name">ZV-E10 II Body</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🔭</div><div><div class="thumb-brand">Sigma</div><div class="thumb-name">18-50mm f/2.8</div></div></div>
-      <div class="thumb-item"><div class="thumb-svg">🎯</div><div><div class="thumb-brand">Zhiyun</div><div class="thumb-name">Crane M2S</div></div></div>
+      <div class="thumb-item"><div class="thumb-svg">💾</div><div><div class="thumb-brand">SanDisk</div><div class="thumb-name">256GB V90</div></div></div>
     </div>
     <div class="header-right">
-      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount green">~₹1,46,000</div></div>
+      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount green">~₹1,72,000</div></div>
       <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
     </div>
   </div>
   <div class="basket-detail">
-    <div class="detail-grid three-col">
+    <div class="detail-grid">
       <div class="detail-col">
         <div class="detail-cat">💡 Studio Lights</div>
         <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">💡</div><div class="lbl">Godox SL60IID ×2</div></div></div>
@@ -873,7 +912,6 @@
         <div class="prod-price">~₹18,000</div>
         <ul class="specs">
           <li>60W continuous LED — excellent for close-up clothing setups</li>
-          <li>Very affordable while maintaining high CRI</li>
         </ul>
       </div>
       <div class="detail-col">
@@ -881,34 +919,35 @@
         <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🎥</div><div class="lbl">Sony ZV-E10 II</div></div></div>
         <div class="prod-name">Sony ZV-E10 II Body<span class="badge">10-Bit Video</span></div>
         <div class="prod-price">~₹75,000</div>
-        <ul class="specs">
-          <li><strong>10-bit 4:2:2 Video</strong> — heavy grading capability for fabric textures</li>
-          <li>Product Showcase Setting — rapidly pulls focus between presenter and garment</li>
-        </ul>
+      </div>
+      <div class="detail-col">
+        <div class="detail-cat">🔭 The Single Lens</div>
+        <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🔭</div><div class="lbl">Sigma 18-50mm f/2.8</div></div></div>
+        <div class="prod-name">Sigma 18-50mm f/2.8</div>
+        <div class="prod-price">~₹35,000</div>
       </div>
       <div class="detail-col lens-pair">
-        <div class="lens-half">
-          <div class="detail-cat">🔭 The Single Lens</div>
-          <div class="prod-name">Sigma 18-50mm f/2.8</div>
-          <div class="prod-price">~₹35,000</div>
-        </div>
         <div class="lens-half">
           <div class="detail-cat">🎯 Gimbal</div>
           <div class="prod-name">Zhiyun Crane M2S</div>
           <div class="prod-price">~₹18,000</div>
-          <ul class="specs">
-            <li>Ultra-lightweight gimbal, perfect for the tiny ZV-E10 II body</li>
-          </ul>
+        </div>
+        <div class="lens-half">
+          <div class="detail-cat">💾 Memory Card</div>
+          <div class="prod-name">SanDisk 256GB V90</div>
+          <div class="prod-price">~₹26,000</div>
+          <ul class="specs"><li><strong>300MB/s</strong> required for the ZV-E10 II's 10-bit internal video</li></ul>
         </div>
       </div>
     </div>
-    <div class="budget-row four-col">
+    <div class="budget-row">
       <div class="bc"><span class="bc-lbl">Lights</span><span class="bc-val">~₹18,000</span></div>
       <div class="bc"><span class="bc-lbl">Camera</span><span class="bc-val">~₹75,000</span></div>
-      <div class="bc"><span class="bc-lbl">Sigma 18-50mm</span><span class="bc-val">~₹35,000</span></div>
+      <div class="bc"><span class="bc-lbl">Sigma Lens</span><span class="bc-val">~₹35,000</span></div>
       <div class="bc"><span class="bc-lbl">Gimbal</span><span class="bc-val">~₹18,000</span></div>
+      <div class="bc"><span class="bc-lbl">256GB V90 SD</span><span class="bc-val">~₹26,000</span></div>
     </div>
-    <div class="verdict"><strong>⭐ Under ₹1.5L Video King:</strong> This hits the budget perfectly. You drop to 60W lights (which are still plenty bright for an indoor clothing setup) and get the incredible 10-bit video capabilities of the ZV-E10 II paired with the sharp Sigma lens.</div>
+    <div class="verdict"><strong>⭐ Compact Studio Video King:</strong> Gives you professional 10-bit color grading capabilities and massive V90 storage at a very accessible price point.</div>
   </div>
 </div>
 
@@ -919,15 +958,15 @@
       <div class="thumb-item"><div class="thumb-svg">💡</div><div><div class="thumb-brand">Godox ×2</div><div class="thumb-name">SL60IID LED</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🎥</div><div><div class="thumb-brand">Canon</div><div class="thumb-name">EOS R50 Body</div></div></div>
       <div class="thumb-item"><div class="thumb-svg">🔭</div><div><div class="thumb-brand">Sigma</div><div class="thumb-name">18-50mm f/2.8 RF</div></div></div>
-      <div class="thumb-item"><div class="thumb-svg">🤖</div><div><div class="thumb-brand">Hohem</div><div class="thumb-name">iSteady MT2</div></div></div>
+      <div class="thumb-item"><div class="thumb-svg">💾</div><div><div class="thumb-brand">SanDisk</div><div class="thumb-name">256GB V90</div></div></div>
     </div>
     <div class="header-right">
-      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount green">~₹1,43,000</div></div>
+      <div class="total-box"><div class="total-label">Total Est.</div><div class="total-amount green">~₹1,69,000</div></div>
       <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
     </div>
   </div>
   <div class="basket-detail">
-    <div class="detail-grid three-col">
+    <div class="detail-grid">
       <div class="detail-col">
         <div class="detail-cat">💡 Studio Lights</div>
         <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">💡</div><div class="lbl">Godox SL60IID ×2</div></div></div>
@@ -941,35 +980,36 @@
         <div class="prod-price">~₹55,000</div>
         <ul class="specs">
           <li><strong>Dual Pixel CMOS AF II</strong> — the most reliable video autofocus on the market</li>
-          <li>Uncropped 4K video oversampled from 6K</li>
         </ul>
       </div>
+      <div class="detail-col">
+        <div class="detail-cat">🔭 The Single Lens</div>
+        <div class="prod-img-wrap"><div class="prod-svg"><div class="icon">🔭</div><div class="lbl">Sigma 18-50mm f/2.8 RF</div></div></div>
+        <div class="prod-name">Sigma 18-50mm f/2.8 RF Mount</div>
+        <div class="prod-price">~₹45,000</div>
+      </div>
       <div class="detail-col lens-pair">
-        <div class="lens-half">
-          <div class="detail-cat">🔭 The Single Lens</div>
-          <div class="prod-name">Sigma 18-50mm f/2.8 RF Mount</div>
-          <div class="prod-price">~₹45,000</div>
-          <ul class="specs">
-            <li>The highly anticipated RF mount version of the Sigma 18-50mm</li>
-          </ul>
-        </div>
         <div class="lens-half">
           <div class="detail-cat">🤖 Gimbal</div>
           <div class="prod-name">Hohem iSteady MT2 Kit</div>
           <div class="prod-price">~₹25,000</div>
-          <ul class="specs">
-            <li>AI Vision tracking for solo video work</li>
-          </ul>
+        </div>
+        <div class="lens-half">
+          <div class="detail-cat">💾 Memory Card</div>
+          <div class="prod-name">SanDisk 256GB V90</div>
+          <div class="prod-price">~₹26,000</div>
+          <ul class="specs"><li>V90 future-proofs your storage, guaranteeing zero lag</li></ul>
         </div>
       </div>
     </div>
-    <div class="budget-row four-col">
+    <div class="budget-row">
       <div class="bc"><span class="bc-lbl">Lights</span><span class="bc-val">~₹18,000</span></div>
       <div class="bc"><span class="bc-lbl">Camera</span><span class="bc-val">~₹55,000</span></div>
-      <div class="bc"><span class="bc-lbl">Sigma 18-50mm RF</span><span class="bc-val">~₹45,000</span></div>
+      <div class="bc"><span class="bc-lbl">Sigma Lens</span><span class="bc-val">~₹45,000</span></div>
       <div class="bc"><span class="bc-lbl">Gimbal</span><span class="bc-val">~₹25,000</span></div>
+      <div class="bc"><span class="bc-lbl">256GB V90 SD</span><span class="bc-val">~₹26,000</span></div>
     </div>
-    <div class="verdict"><strong>Verdict:</strong> Canon's legendary Dual Pixel autofocus locks onto subjects effortlessly as models move to showcase outfits. Paired with Sigma's new RF mount lens, you get top-tier video features on an incredibly affordable camera body.</div>
+    <div class="verdict"><strong>Verdict:</strong> Canon's legendary Dual Pixel autofocus locks onto subjects effortlessly as models showcase outfits. Included V90 card ensures smooth recording without interruption.</div>
   </div>
 </div>
 
@@ -980,7 +1020,7 @@
     <div class="guide-icon">🏆</div>
     <div>
       <div class="guide-title">Best overall — video + studio + nature, all in one</div>
-      <div class="guide-desc">→ <strong>Basket 1</strong> — Sony a6700 + Dual Lenses + Godox SL100D LED. Under ₹2.5L, covers every use case.</div>
+      <div class="guide-desc">→ <strong>Basket 1</strong> — Sony a6700 + Dual Lenses + Godox SL100D LED. Under ₹2.7L, covers every use case.</div>
     </div>
   </div>
   <div class="guide-row">
@@ -993,14 +1033,14 @@
   <div class="guide-row">
     <div class="guide-icon">💰</div>
     <div>
-      <div class="guide-title">Best Video Setup Under ₹1.5 Lakhs</div>
+      <div class="guide-title">Best Video Setup Under ₹1.75 Lakhs</div>
       <div class="guide-desc">→ <strong>Basket 8</strong> — Sony ZV-E10 II + Sigma 18-50mm. Gives you professional 10-bit color grading capabilities on a tight budget.</div>
     </div>
   </div>
   <div class="guide-row">
     <div class="guide-icon">🎯</div>
     <div>
-      <div class="guide-title">Budget Solo Shooter — Under ₹1.5 Lakhs with Auto-Tracking</div>
+      <div class="guide-title">Budget Solo Shooter — Under ₹1.7 Lakhs with Auto-Tracking</div>
       <div class="guide-desc">→ <strong>Basket 9</strong> — Canon R50 + Sigma 18-50mm (RF). Canon's insane autofocus combined with an AI tracking gimbal makes solo work effortless.</div>
     </div>
   </div>
@@ -1021,7 +1061,8 @@
 </div>
 
 <span class="footer-note">
-  All prices approximate · India market April 2025<br>
+  All prices approximate · India market April 2026<br>
+  All setups now feature SanDisk 256GB Extreme PRO V90 SDXC UHS-II Memory Cards (~₹26,000)<br>
   All light setups are continuous LED (video-first) except Basket 2 (strobe, photo-first)
 </span>
 
