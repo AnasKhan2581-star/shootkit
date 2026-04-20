@@ -1,167 +1,134 @@
-// app.js — renders all dynamic content from data files
+// app.js — renders baskets, guide, blogs. Hamburger menu. Filter. Buy links.
 
-// ── BASKET RENDERER ──────────────────────────────────────────────
+// ── PRICE ──────────────────────────────────────────────────────────
 function priceStr(inr) {
-  if (inr === 0) return 'Included';
+  if (inr === 0) return '<span style="color:var(--green);font-size:10px;">Included</span>';
   return '~' + window.CURRENCY.format(inr);
 }
 
-function buildSpecsHTML(specs) {
-  if (!specs || !specs.length) return '';
-  return '<ul class="specs">' + specs.map(s => `<li>${s}</li>`).join('') + '</ul>';
-}
-
-function buildTagsHTML(tags) {
-  if (!tags || !tags.length) return '';
-  return '<div class="tags">' + tags.map(t => `<span class="tag ${t.c}">${t.t}</span>`).join('') + '</div>';
-}
-
-function buildColumnHTML(col) {
+// ── COLUMN BUILDER ─────────────────────────────────────────────────
+function buildColHTML(col) {
   if (col.type === 'lens-pair') {
-    return `<div class="detail-col lens-pair">
-      ${col.lenses.map(l => `
-        <div class="lens-half">
-          <div class="detail-cat">${l.cat}</div>
-          <div class="prod-img-wrap">
-            <div class="prod-svg">
-              <div class="icon">${l.icon}</div>
-              <div class="lbl">${l.lbl.replace(/\n/g,'<br>')}</div>
-            </div>
-          </div>
-          <div class="prod-name">${l.name}${l.badge ? `<span class="badge">${l.badge}</span>` : ''}</div>
-          ${l.priceINR > 0 ? `<div class="prod-price data-price" data-inr="${l.priceINR}">${priceStr(l.priceINR)}</div>` : ''}
-          ${buildSpecsHTML(l.specs)}
-          ${buildTagsHTML(l.tags)}
-        </div>
-      `).join('')}
+    return `<div class="detail-col lens-pair">${col.lenses.map(l => `
+      <div class="lens-half">
+        <div class="detail-cat">${l.cat}</div>
+        <div class="prod-img-wrap"><div class="prod-svg">
+          <div class="icon">${l.icon}</div>
+          <div class="lbl">${l.lbl.replace(/\n/g,'<br>')}</div>
+        </div></div>
+        <div class="prod-name">${l.name}${l.badge?`<span class="badge">${l.badge}</span>`:''}</div>
+        ${l.priceINR>0?`<div class="prod-price" data-inr="${l.priceINR}">${priceStr(l.priceINR)}</div>`:''}
+        ${l.specs?.length?'<ul class="specs">'+l.specs.map(s=>`<li>${s}</li>`).join('')+'</ul>':''}
+        ${l.tags?.length?'<div class="tags">'+l.tags.map(t=>`<span class="tag ${t.c}">${t.t}</span>`).join('')+'</div>':''}
+        ${l.amazonSearch?`<a class="buy-btn" href="${window.CURRENCY.amazonLink(l.amazonSearch)}" data-amazon-product="${l.amazonSearch}" target="_blank" rel="nofollow noopener">🛒 Buy on Amazon</a>`:''}
+      </div>`).join('')}
     </div>`;
   }
   return `<div class="detail-col">
     <div class="detail-cat">${col.cat}</div>
-    <div class="prod-img-wrap">
-      <div class="prod-svg">
-        <div class="icon">${col.icon}</div>
-        <div class="lbl">${col.lbl.replace(/\n/g,'<br>')}</div>
-      </div>
-    </div>
-    <div class="prod-name">${col.name}${col.badge ? `<span class="badge">${col.badge}</span>` : ''}</div>
-    ${col.priceINR ? `<div class="prod-price data-price" data-inr="${col.priceINR}">${priceStr(col.priceINR)}</div>` : ''}
-    ${buildSpecsHTML(col.specs)}
-    ${buildTagsHTML(col.tags)}
+    <div class="prod-img-wrap"><div class="prod-svg">
+      <div class="icon">${col.icon}</div>
+      <div class="lbl">${col.lbl.replace(/\n/g,'<br>')}</div>
+    </div></div>
+    <div class="prod-name">${col.name}${col.badge?`<span class="badge">${col.badge}</span>`:''}</div>
+    ${col.priceINR?`<div class="prod-price" data-inr="${col.priceINR}">${priceStr(col.priceINR)}</div>`:''}
+    ${col.specs?.length?'<ul class="specs">'+col.specs.map(s=>`<li>${s}</li>`).join('')+'</ul>':''}
+    ${col.tags?.length?'<div class="tags">'+col.tags.map(t=>`<span class="tag ${t.c}">${t.t}</span>`).join('')+'</div>':''}
+    ${col.amazonSearch?`<a class="buy-btn" href="${window.CURRENCY.amazonLink(col.amazonSearch)}" data-amazon-product="${col.amazonSearch}" target="_blank" rel="nofollow noopener">🛒 Buy on Amazon</a>`:''}
   </div>`;
 }
 
+// ── BASKET HTML ────────────────────────────────────────────────────
 function buildBasketHTML(b) {
-  const thumbsHTML = b.thumbs.map(t => `
+  const thumbs = b.thumbs.map(t=>`
     <div class="thumb-item">
       <div class="thumb-svg">${t.icon}</div>
-      <div>
-        <div class="thumb-brand">${t.brand}</div>
-        <div class="thumb-name">${t.name}</div>
-      </div>
+      <div><div class="thumb-brand">${t.brand}</div><div class="thumb-name">${t.name}</div></div>
     </div>`).join('');
 
-  const columnsHTML = b.columns.map(buildColumnHTML).join('');
-
-  const budgetHTML = b.budgetRow.map(r =>
-    `<div class="bc">
-      <span class="bc-lbl">${r.lbl}</span>
-      <span class="bc-val data-price" data-inr="${r.inr}">${priceStr(r.inr)}</span>
-    </div>`
+  const budget = b.budgetRow.map(r=>
+    `<div class="bc"><span class="bc-lbl">${r.lbl}</span><span class="bc-val" data-inr="${r.inr}">${priceStr(r.inr)}</span></div>`
   ).join('');
 
-  return `
-    <div class="basket${b.topPick ? ' top-pick' : ''}" id="${b.id}" data-tags="${b.tags.join(' ')}">
-      ${b.topPick ? `<div class="ribbon" onclick="toggleBasket('${b.id}')">${b.ribbon}</div>` : ''}
-      ${b.ribbon && !b.topPick ? `<div class="ribbon" onclick="toggleBasket('${b.id}')">${b.ribbon}</div>` : ''}
-      <div class="basket-header" onclick="toggleBasket('${b.id}')">
-        <div class="basket-num">${b.num}</div>
-        <div class="thumb-strip">${thumbsHTML}</div>
-        <div class="header-right">
-          <div class="total-box">
-            <div class="total-label">Total Est.</div>
-            <div class="total-amount ${b.totalClass} data-price" data-inr="${b.totalINR}">${priceStr(b.totalINR)}</div>
-          </div>
-          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+  const label = b.label ? `<div class="basket-label">${b.labelIcon} ${b.label}</div>` : '';
+
+  return `<div class="basket${b.topPick?' top-pick':''}" id="${b.id}" data-tags="${b.tags.join(' ')}">
+    ${b.ribbon?`<div class="ribbon" onclick="toggleBasket('${b.id}')">${b.ribbon}</div>`:''}
+    <div class="basket-header" onclick="toggleBasket('${b.id}')">
+      <div class="basket-num">${b.num}</div>
+      ${label}
+      <div class="thumb-strip">${thumbs}</div>
+      <div class="header-right">
+        <div class="total-box">
+          <div class="total-label">Total Est.</div>
+          <div class="total-amount ${b.totalClass}" data-inr="${b.totalINR}">${window.CURRENCY.format(b.totalINR,true)}</div>
         </div>
+        <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
       </div>
-      <div class="basket-detail">
-        <div class="detail-grid">${columnsHTML}</div>
-        <div class="budget-row">${budgetHTML}</div>
-        <div class="verdict">${b.verdict}</div>
-      </div>
-    </div>`;
+    </div>
+    <div class="basket-detail">
+      <div class="detail-grid">${b.products.map(buildColHTML).join('')}</div>
+      <div class="budget-row">${budget}</div>
+      <div class="verdict">${b.verdict}</div>
+    </div>
+  </div>`;
 }
 
 window.renderBaskets = function() {
-  const container = document.getElementById('baskets-container');
-  if (!container || !window.BASKETS_DATA) return;
-  container.innerHTML = window.BASKETS_DATA.map(buildBasketHTML).join('');
-  // Re-attach currency
+  const el = document.getElementById('baskets-container');
+  if (!el || !window.BASKETS_DATA) return;
+  el.innerHTML = window.BASKETS_DATA.map(buildBasketHTML).join('');
   window.CURRENCY.convertAll();
-  // Re-open top pick
   const tp = document.querySelector('.basket.top-pick');
   if (tp) tp.classList.add('expanded');
+  reapplyFilter();
 };
 
-// ── TOGGLE ────────────────────────────────────────────────────────
+// ── TOGGLE ─────────────────────────────────────────────────────────
 window.toggleBasket = function(id) {
   const el = document.getElementById(id);
   if (!el) return;
   const wasOpen = el.classList.contains('expanded');
-  document.querySelectorAll('.basket').forEach(b => {
-    if (!b.classList.contains('top-pick')) b.classList.remove('expanded');
-  });
+  document.querySelectorAll('.basket:not(.top-pick)').forEach(b => b.classList.remove('expanded'));
   if (wasOpen) el.classList.remove('expanded');
-  else el.classList.add('expanded');
+  else { el.classList.add('expanded'); el.scrollIntoView({behavior:'smooth',block:'nearest'}); }
 };
 
-// ── FILTER ────────────────────────────────────────────────────────
-function initFilters() {
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      document.querySelectorAll('.basket').forEach(basket => {
-        if (filter === 'all') {
-          basket.removeAttribute('data-filter-hidden');
-        } else {
-          const tags = basket.dataset.tags || '';
-          if (tags.includes(filter)) {
-            basket.removeAttribute('data-filter-hidden');
-          } else {
-            basket.setAttribute('data-filter-hidden', 'true');
-          }
-        }
-      });
-    });
+// ── FILTER ─────────────────────────────────────────────────────────
+let activeFilter = 'all';
+
+window.filterBaskets = function(filter) {
+  activeFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+  reapplyFilter();
+  document.getElementById('baskets')?.scrollIntoView({behavior:'smooth'});
+};
+
+function reapplyFilter() {
+  document.querySelectorAll('.basket').forEach(b => {
+    const tags = b.dataset.tags || '';
+    b.style.display = (activeFilter === 'all' || tags.includes(activeFilter)) ? '' : 'none';
   });
 }
 
-// ── GUIDE ─────────────────────────────────────────────────────────
+// ── GUIDE ──────────────────────────────────────────────────────────
 function renderGuide() {
-  const container = document.getElementById('guide-container');
-  if (!container || !window.GUIDE_DATA) return;
-  container.innerHTML = window.GUIDE_DATA.map(g => `
-    <a class="guide-row" href="${g.link}">
+  const el = document.getElementById('guide-container');
+  if (!el || !window.GUIDE_DATA) return;
+  el.innerHTML = window.GUIDE_DATA.map(g=>`
+    <a class="guide-row" href="${g.link}" onclick="setTimeout(()=>toggleBasket('${g.link.replace('#','')}'),300)">
       <div class="guide-icon">${g.icon}</div>
-      <div>
-        <div class="guide-title">${g.title}</div>
-        <div class="guide-desc">${g.desc}</div>
-      </div>
+      <div><div class="guide-title">${g.title}</div><div class="guide-desc">${g.desc}</div></div>
       <div class="guide-arrow">→</div>
     </a>`).join('');
 }
 
-// ── BLOGS ─────────────────────────────────────────────────────────
+// ── BLOGS ──────────────────────────────────────────────────────────
 let blogsShown = 9;
-
 function renderBlogs(limit) {
-  const container = document.getElementById('blog-container');
-  if (!container || !window.BLOGS_DATA) return;
-  const visible = window.BLOGS_DATA.slice(0, limit || blogsShown);
-  container.innerHTML = visible.map(b => `
+  const el = document.getElementById('blog-container');
+  if (!el || !window.BLOGS_DATA) return;
+  el.innerHTML = window.BLOGS_DATA.slice(0,limit||blogsShown).map(b=>`
     <a class="blog-card" href="blogs/${b.slug}.html">
       <div class="blog-thumb">${b.emoji}</div>
       <div class="blog-body">
@@ -176,32 +143,63 @@ function renderBlogs(limit) {
     </a>`).join('');
 }
 
-// ── INIT ──────────────────────────────────────────────────────────
+// ── HAMBURGER ──────────────────────────────────────────────────────
+function initHamburger() {
+  const btn = document.getElementById('hamburger');
+  const links = document.getElementById('navLinks');
+  if (!btn || !links) return;
+  btn.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    btn.classList.toggle('active', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  // Close on link click
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      links.classList.remove('open');
+      btn.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+  // Close on outside click
+  document.addEventListener('click', e => {
+    if (!btn.contains(e.target) && !links.contains(e.target)) {
+      links.classList.remove('open');
+      btn.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+}
+
+// ── STICKY NAV ─────────────────────────────────────────────────────
+function initNav() {
+  const nav = document.getElementById('topnav');
+  if (!nav) return;
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 40 ? 'rgba(14,14,15,0.98)' : 'rgba(14,14,15,0.92)';
+  }, {passive:true});
+}
+
+// ── INIT ───────────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   renderBaskets();
   renderGuide();
   renderBlogs(9);
-  initFilters();
+  initHamburger();
+  initNav();
+
+  // Filter buttons
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => filterBaskets(btn.dataset.filter));
+  });
 
   // Load more blogs
-  const loadMoreBtn = document.getElementById('load-more-blogs');
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener('click', () => {
+  const moreBtn = document.getElementById('load-more-blogs');
+  if (moreBtn) {
+    moreBtn.addEventListener('click', () => {
       blogsShown += 9;
       renderBlogs(blogsShown);
-      if (blogsShown >= window.BLOGS_DATA.length) {
-        loadMoreBtn.style.display = 'none';
-      }
+      if (blogsShown >= (window.BLOGS_DATA?.length||0)) moreBtn.style.display = 'none';
     });
-  }
-
-  // Sticky nav scroll effect
-  const nav = document.getElementById('topnav');
-  if (nav) {
-    window.addEventListener('scroll', () => {
-      nav.style.background = window.scrollY > 40
-        ? 'rgba(14,14,15,0.97)'
-        : 'rgba(14,14,15,0.92)';
-    }, { passive: true });
   }
 });
