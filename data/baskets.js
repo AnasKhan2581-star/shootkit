@@ -78,7 +78,7 @@ window.BASKETS_DATA = [
     {lbl:'Lights',inr:28000},{lbl:'Camera',inr:121000},
     {lbl:'Lenses',inr:70000},{lbl:'Gimbal',inr:26000},{lbl:'512GB V90',inr:23000}
   ],
-  verdict:'<strong>⭐ Why this is #1:</strong> Sigma f/2.8 for studio bokeh. Sony 18-135mm for travel reach. Godox LED lights mean video shoots without any flash sync headache. a6700's 6K-oversampled 4K with S-Log3 beats iPhone footage after a quick LUT. SanDisk V90 handles every recording mode. No compromises under ₹2.7L.'
+  verdict:'<strong>⭐ Why this is #1:</strong> Sigma f/2.8 for studio bokeh. Sony 18-135mm for travel reach. Godox LED lights mean video shoots without any flash sync headache. a6700\'s 6K-oversampled 4K with S-Log3 beats iPhone footage after a quick LUT. SanDisk V90 handles every recording mode. No compromises under ₹2.7L.'
 },
 
 {
